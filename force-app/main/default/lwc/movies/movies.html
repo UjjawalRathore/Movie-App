@@ -1,12 +1,94 @@
-<template>
+<!-- My work to display movies  -->
+
+<!-- <template>
     <lightning-card title="Movies">
       <lightning-button label="Get Movies" slot="actions" onclick={getMyMovies}></lightning-button>
-      <template for:each={movies} for:item="movie">
-        <lightning-card key={movie.Id} title={movie.Name}>
-          <lightning-avatar size="large"   
-            src={movie.PosterURL__c} class="slds-m-right_small" slot="actions">
-          </lightning-avatar>
-        </lightning-card>
+
+      <lightning-layout multiple-rows>
+
+        <template for:each={movies} for:item="movie">
+
+          <lightning-layout-item key={movie.Id} size="4" padding="around-small">
+
+            <lightning-card key={movie.Id} title={movie.Name}>
+              <img src={movie.PosterURL__c} alt={movie.Name} class="movie-image"> -->
+              <!-- <lightning-avatar size="large"   
+                src={movie.PosterURL__c} class="slds-m-right_small" slot="actions">
+              </lightning-avatar> -->
+            <!-- </lightning-card>
+
+          </lightning-layout-item>
+
+        </template>
+
+      </lightning-layout>
+      
+    </lightning-card>
+  </template> -->
+
+  <!-- 27th class -->
+
+  <template>
+    <lightning-card title="Movies">
+      <template lwc:if={showMovies}>
+        
+        <!-- Showing movie List -->
+        <c-movies-list movies={movies}></c-movies-list>
+        <lightning-button label='Previous' onclick={previous} slot="footer"></lightning-button>
+        <lightning-button label='Next' onclick={next} slot="footer"></lightning-button>
+      </template>
+
+      <template lwc:if={showMovie}>
+        Showing an actor
+      </template>
+      <template lwc:if={showActor}>
+        Showing an actor
       </template>
     </lightning-card>
   </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+    <lightning-layout>
+      <lightning-layout-item size="4"> Column 1 content </lightning-layout-item>
+      <lightning-layout-item size="8"> Column 2 content </lightning-layout-item>
+    </lightning-layout>
+    
+    PULL TO BOUNDARY
+    <div class="c-container">
+        <lightning-layout pull-to-boundary="medium">
+            <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                <div class="custom-box">1</div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    
+    
+    
+    <div class="c-container">
+        <lightning-layout horizontal-align="spread">
+            <lightning-layout-item padding="around-small">
+                <div class="custom-box">1</div>
+            </lightning-layout-item>
+        </lightning-layout>
+      </div> -->

@@ -1,3 +1,29 @@
 <template>
-    
+  <template if:true={findActor}>
+    <lightning-card title={findActor.Name}></lightning-card>
+  </template>
+    <!-- <lightning-card title={movie.Name}>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-2">
+              <template lwc:if={movie.PosterURL__c}>
+                <img src={movie.PosterURL__c} width="100%"/>
+              </template>
+              <template lwc:else>
+                <div class="slds-text-heading_large slds-align_absolute-center">No Poster</div>
+              </template>
+            </div>
+              <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+                <div class="slds-text-heading_medium">Release Date:{formattedReleaseDate}</div>
+                <div class="slds-text-title_bold">Original Language:</div>
+                <div>{movie.Original_Language__c}</div>
+                <div class="slds-text-title_bold">Genres:</div>
+                <div>{movie.Genre__c}</div>
+                <div class="slds-text-title_bold">Runtime:</div>
+                <div>{movie.Runtime_Minutes__c} minutes</div>
+                <div class="slds-text-title_bold">Overview:</div>
+                <div>{movie.Overview__c}</div>
+            </div>
+            </div>
+          </div>
+    </lightning-card> -->
 </template>

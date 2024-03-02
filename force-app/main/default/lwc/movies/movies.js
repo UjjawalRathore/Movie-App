@@ -4,6 +4,9 @@ export default class Movies extends LightningElement {
   movies = [];
   pageNumber = 1;
   chosenView = 'showMovies';
+  selectedMovie
+  SelectedMovieId
+  selectedActorId
 
   connectedCallback() {
     this.getMyMovies();
@@ -60,6 +63,20 @@ export default class Movies extends LightningElement {
 
   getOffset() {
     return (this.pageNumber - 1) * 9;
+  }
+
+  handleMovieSelected(event){
+    this.SelectedMovieId = event.detail;
+    this.selectedMovie = this.movies.find(movieId => movieId.Id === event.detail);
+    console.log(JSON.stringify(this.selectedMovie));
+    this.chosenView = 'showMovie';
+  }
+
+  handleActorSelected(event){
+    this.selectedActorId = event.detail;
+    this.selectedActor = this.movies.find(actorId => actorId.Id === event.detail);
+    console.log('actorId------------>',this.selectedActorId);
+    this.chosenView = 'showActor'
   }
 
 }

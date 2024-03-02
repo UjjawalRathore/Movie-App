@@ -31,18 +31,17 @@
   <template>
     <lightning-card title="Movies">
       <template lwc:if={showMovies}>
-        
-        <!-- Showing movie List -->
-        <c-movies-list movies={movies}></c-movies-list>
         <lightning-button label='Previous' onclick={previous} slot="footer"></lightning-button>
         <lightning-button label='Next' onclick={next} slot="footer"></lightning-button>
+        <!-- Showing movie List -->
+        <c-movies-list onselectedmovie={handleMovieSelected} movies={movies}></c-movies-list>
       </template>
 
       <template lwc:if={showMovie}>
-        Showing an actor
+        <c-movie-info onactorclick={handleActorSelected} movie={selectedMovie} movie-id={SelectedMovieId}></c-movie-info>
       </template>
       <template lwc:if={showActor}>
-        Showing an actor
+        <c-actor-info actor-id={selectedActorId}></c-actor-info>
       </template>
     </lightning-card>
   </template>

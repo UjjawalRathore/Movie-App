@@ -6,4 +6,12 @@ public with sharing class MovieController {
                 from Film__c
                 limit 9 offset :offset];
     }
+
+      public static List<Cast_Member__c> getMovieDetails(String movieId){
+        return [select id, Name, Actors_Id__r.Id, Actors_Id__r.Name, Actors_Id__r.Profile_Url__c
+                    from Cast_Member__c
+                where Film_Id__c = :movieId];
+    }
+
+	
 }

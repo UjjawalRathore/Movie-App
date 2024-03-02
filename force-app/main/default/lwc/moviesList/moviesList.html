@@ -21,7 +21,7 @@
                   <!-- added the scroll feature of overview -->
                   <!-- <p class="slds-var-p-around_small" style="max-height: 100px; overflow-y: auto;">{movie.Overview__c}</p> -->
                   <p class="slds-var-p-around_small">Tagline: {movie.Tagline__c}</p>
-
+                  <lightning-button label='Details' onclick={showDetails} slot="action" data-movie-id={movie.Id}></lightning-button>
                 </div>
               </div>
             </lightning-card>

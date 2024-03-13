@@ -4,6 +4,8 @@ export default class Movies extends LightningElement {
   movies = [];
   pageNumber = 1;
   chosenView = 'showMovies';
+  disablePrev = true;
+  disableNext = false;
   selectedMovie
   SelectedMovieId
   selectedActorId
@@ -37,6 +39,10 @@ export default class Movies extends LightningElement {
     if (this.pageNumber <= 11) {
         this.pageNumber += 1;
         this.getMyMovies();
+        this.disablePrev = false;
+    }
+    if (this.pageNumber === 12) {
+      this.disableNext = true;
     }
   }
 
@@ -44,7 +50,11 @@ export default class Movies extends LightningElement {
       if (this.pageNumber > 1) {
           this.pageNumber -= 1;
           this.getMyMovies();
+          this.disableNext = false
       }
+      if (this.pageNumber === 1) {
+        this.disablePrev = true;
+      }
   }
 
   async getMyMovies() {
@@ -65,6 +75,15 @@ export default class Movies extends LightningElement {
     return (this.pageNumber - 1) * 9;
   }
 
+  get headerTitle(){
+    if(this.showMovie){
+      return 'Movie Detail';
+    } else if (this.showActor){
+      return 'Actor Detail';
+    }
+    return 'Movies';
+  }
+
   handleMovieSelected(event){
     this.SelectedMovieId = event.detail;
     this.selectedMovie = this.movies.find(movieId => movieId.Id === event.detail);
@@ -78,5 +97,16 @@ export default class Movies extends LightningElement {
     console.log('actorId------------>',this.selectedActorId);
     this.chosenView = 'showActor'
   }
+
+  handleGoBack(event) {
+    if(this.chosenView ==='showMovie'){
+      this.chosenView='showMovies';
+    }else if(this.chosenView ==='showActor'){
+      this.chosenView = 'showMovie';
+    }else{
+      this.chosenView = 'showMovies';
+    }
+    console.log('handleGoBack');
+}
 
 }

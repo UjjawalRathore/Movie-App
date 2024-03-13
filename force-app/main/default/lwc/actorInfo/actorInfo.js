@@ -11,17 +11,16 @@ export default class ActorDetails extends LightningElement {
     }
 
     async getActorDetail() {
-        try {
             this.actor = await getActor({ selectedId: this.actorId });
             console.log('Actor Detail:', this.actor);
             this.findActor = this.actor[0];
             console.log('find actor----->', this.findActor);
-        } catch (error) {
-            console.error('Error fetching actor details:', error);
-        }
     }
 
-    
+    handleBack(event){
+        this.dispatchEvent(new CustomEvent('goback'));
+        console.log('movieInfo---->>');
+      }    
 
 
 

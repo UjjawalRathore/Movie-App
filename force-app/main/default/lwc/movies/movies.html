@@ -29,19 +29,19 @@
   <!-- 27th class -->
 
   <template>
-    <lightning-card title="Movies">
+    <lightning-card title={headerTitle}>
       <template lwc:if={showMovies}>
-        <lightning-button label='Previous' onclick={previous} slot="footer"></lightning-button>
-        <lightning-button label='Next' onclick={next} slot="footer"></lightning-button>
+        <lightning-button label='Previous' onclick={previous} disabled={disablePrev} slot="footer" class="slds-m-right_x-small"></lightning-button>
+        <lightning-button label='Next' onclick={next} disabled={disableNext} slot="footer"></lightning-button>
         <!-- Showing movie List -->
         <c-movies-list onselectedmovie={handleMovieSelected} movies={movies}></c-movies-list>
       </template>
 
       <template lwc:if={showMovie}>
-        <c-movie-info onactorclick={handleActorSelected} movie={selectedMovie} movie-id={SelectedMovieId}></c-movie-info>
+        <c-movie-info ongoback={handleGoBack} onactorclick={handleActorSelected} movie={selectedMovie} movie-id={SelectedMovieId}></c-movie-info>
       </template>
       <template lwc:if={showActor}>
-        <c-actor-info actor-id={selectedActorId}></c-actor-info>
+        <c-actor-info ongoback={handleGoBack} actor-id={selectedActorId}></c-actor-info>
       </template>
     </lightning-card>
   </template>

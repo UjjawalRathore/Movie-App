@@ -20,7 +20,9 @@ public with sharing class CastController {
                    Actors_Id__r.Birth_Place__c, 
                    Actors_Id__r.Gender__c, 
                    Actors_Id__r.Profile_Url__c, 
-                   Actors_Id__r.Death_Day__c 
+                   Actors_Id__r.Death_Day__c,
+                   Actors_Id__r.Biography__c,
+                   Actors_Id__r.Known_For__c
             FROM Cast_Member__c
             WHERE Actors_Id__c = :selectedId
         ];

@@ -2,6 +2,7 @@ import { LightningElement, api } from 'lwc';
 // import getMovieDetails from '@salesforce/apex/MovieController.getMovieDetails';
 import getCastMember from '@salesforce/apex/CastController.getCastMember'
 
+
 export default class MovieInfo extends LightningElement {
     @api movie;
     @api movieId;
@@ -26,6 +27,11 @@ export default class MovieInfo extends LightningElement {
             detail: actorId
         }))
     }
+
+    handleBack(event){
+        this.dispatchEvent(new CustomEvent('goback'));
+        console.log('movieInfo---->>');
+      }
     
     // get selectedMovie() {
     //     return this.moviesList.find(movie => movie.Id === this.movieId);

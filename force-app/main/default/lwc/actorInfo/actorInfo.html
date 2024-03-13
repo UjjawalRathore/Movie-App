@@ -1,29 +1,34 @@
 <template>
   <template if:true={findActor}>
-    <lightning-card title={findActor.Name}></lightning-card>
-  </template>
-    <!-- <lightning-card title={movie.Name}>
-        <div class="slds-grid">
-            <div class="slds-col slds-size_1-of-2">
-              <template lwc:if={movie.PosterURL__c}>
-                <img src={movie.PosterURL__c} width="100%"/>
-              </template>
-              <template lwc:else>
-                <div class="slds-text-heading_large slds-align_absolute-center">No Poster</div>
-              </template>
-            </div>
+      <lightning-card title={findActor.Actors_Id__r.Name}>
+          <div class="slds-grid" key={findActor.Id}>
+              <div class="slds-col slds-size_1-of-2">
+                  <template if:true={findActor.Actors_Id__r.Profile_Url__c}>
+                      <img src={findActor.Actors_Id__r.Profile_Url__c} width="80%" style="display: block; margin: 0 auto;" />
+                  </template>
+                  <template if:false={findActor.Actors_Id__r.Profile_Url__c}>
+                      <div class="slds-text-heading_large slds-align_absolute-center">No Poster</div>
+                  </template>
+              </div>
               <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
-                <div class="slds-text-heading_medium">Release Date:{formattedReleaseDate}</div>
-                <div class="slds-text-title_bold">Original Language:</div>
-                <div>{movie.Original_Language__c}</div>
-                <div class="slds-text-title_bold">Genres:</div>
-                <div>{movie.Genre__c}</div>
-                <div class="slds-text-title_bold">Runtime:</div>
-                <div>{movie.Runtime_Minutes__c} minutes</div>
-                <div class="slds-text-title_bold">Overview:</div>
-                <div>{movie.Overview__c}</div>
-            </div>
-            </div>
+                  <div class="slds-text-title_bold">Character Name: {findActor.Name}</div>
+                  <p class="slds-text-title_bold">Known For:</p>
+                  <p>{findActor.Actors_Id__r.Known_For__c}</p>
+                  <p class="slds-text-title_bold">Birth Date:</p>
+                  <p>{findActor.Actors_Id__r.Birth_Day__c}</p>
+                  <p class="slds-text-title_bold">Birth Place:</p>
+                  <p>{findActor.Actors_Id__r.Birth_Place__c}</p>
+                  <p class="slds-text-title_bold">Death Date:</p>
+                  <p>{findActor.Actors_Id__r.Death_Day__c}</p>
+                  <p class="slds-text-title_bold">Gender:</p>
+                  <p>{findActor.Actors_Id__r.Gender__c}</p>
+                  <p class="slds-text-title_bold">Biography:</p>
+                  <div class="slds-box slds-box_small">
+                      <p>{findActor.Actors_Id__r.Biography__c}</p>
+                  </div>
+              </div>
           </div>
-    </lightning-card> -->
+          <lightning-button label="Back" slot="footer" onclick={handleBack}></lightning-button>
+      </lightning-card>
+  </template>
 </template>

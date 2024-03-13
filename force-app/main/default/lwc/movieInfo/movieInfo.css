@@ -1,0 +1,53 @@
+.movie-info-container {
+    padding: 20px;
+}
+
+.movie-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.no-poster-text {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.release-date, .original-language, .genres, .runtime, .overview, .cast-members {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.cast-members-list {
+    margin-top: 10px;
+}
+
+.cast-member {
+    text-align: center;
+}
+
+.actor-profile {
+    cursor: pointer;
+}
+
+.actor-image {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.no-profile-image-text {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.actor-name {
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.back-button {
+    margin-top: 20px;
+}
